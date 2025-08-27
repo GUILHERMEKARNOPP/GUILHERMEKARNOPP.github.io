@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo GUILHERME KARNOPP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #667eea 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #667eea);
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+        
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 20px);
+            background: #e2e8f0;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 6px solid white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            object-fit: cover;
+        }
+        
+        .contact-btn {
+            background: linear-gradient(135deg, #667eea 0%, #667eea 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+            }
+            
+            .gradient-bg {
+                background: #667eea !important;
+            }
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #667eea);
+            border-radius: 2px;
+        }
+        
+        .language-level {
+            display: flex;
+            gap: 2px;
+        }
+        
+        .language-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e2e8f0;
+        }
+        
+        .language-dot.active {
+            background: #667eea;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-10"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="fade-in">
+                    <img src="https://i.postimg.cc/TPMwTCrR/FOTO-PERFIL.jpg"  class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="profile-image bg-gray-300 flex items-center justify-center text-4xl text-gray-600" style="display: none;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="text-center md:text-left fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-2">Guilherme karnopp</h1>
+                    <h2 class="text-xl md:text-2xl font-light mb-4 opacity-90">Estudante de Engenharia de Software</h2>
+                    <p class="text-lg opacity-80 max-w-2xl">
+                        Foco em Desenvolvimento Back-End | AWS Cloud Fundations | Aberto a oportunidades de estágio ou vagas de jovem aprendiz em tecnologia.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-6 justify-center md:justify-start">
+                        <a href="mailto:jlkarnopp@gmail.com"  class="contact-btn text-white px-6 py-3 rounded-full flex items-center gap-2 no-print">
+                            <i class="fas fa-envelope"></i>
+                            Contato
+                        </a>
+                        <button onclick="window.print()" class="bg-white text-gray-800 px-6 py-3 rounded-full flex items-center gap-2 hover:bg-gray-100 transition-colors no-print">
+                            <i class="fas fa-download"></i>
+                            Baixar PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Coluna Principal -->
+            <div class="lg:col-span-2 space-y-8">
+
+                <!-- Educação -->
+                <section class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6 section-title">
+                        <i class="fas fa-graduation-cap text-blue-600 mr-3"></i>
+                        Educação
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                <h4 class="text-lg font-semibold text-gray-800">Bacharelado em Engenharia de Software</h4>
+                                <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">2025 - 2029</span>
+                            </div>
+                            <p class="text-blue-600 font-medium mb-2">Universidade da Região de Joinville</p>
+                            <p class="text-gray-600">Foco em desenvolvimento de programas, aplicativos e jogos, apto para realizar funções, tarefas ou atividades em dispositivos tecnológicos.</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                <h4 class="text-lg font-semibold text-gray-800">Curso Computação Organizacional</h4>
+                                <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">2021 - 2022</span>
+                            </div>
+                            <p class="text-blue-600 font-medium mb-2">ESCOLAS IT'S NOW - CURSOS PROFISSIONALIZANTES</p>
+                            <p class="text-gray-600">Digitação | Windows | Internet | Word | Exel | PowerPoint </p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                <h4 class="text-lg font-semibold text-gray-800">AWS Academy Cloud Foundations</h4>
+                                <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">2025 - 2025</span>
+                            </div>
+                            <p class="text-blue-600 font-medium mb-2">AWS Academy</p>
+                            <p class="text-gray-600"> Aprender a utilizar a plataforma em nuvem da Amazon Web Services.</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                <h4 class="text-lg font-semibold text-gray-800">Curso Inglês</h4>
+                                <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">2020 - 2022</span>
+                            </div>
+                            <p class="text-blue-600 font-medium mb-2">ESCOLAS IT'S NOW - CURSOS PROFISSIONALIZANTES</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                <h4 class="text-lg font-semibold text-gray-800">Designing and Implementing Microsoft AI Solution (AI-102)</h4>
+                                <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">12/08/2025 - 25/11/2025</span>
+                            </div>
+                            <p class="text-blue-600 font-medium mb-2">Microsoft Learn - FAEG (FUNDO DE APOIO AO ESTUDANTE DE GRADUAÇÃO)</p>
+                            <p class="text-gray-600"> Aprender os desenvolver soluções com serviços de IA do Microsoft Azure.</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                <h4 class="text-lg font-semibold text-gray-800">AWS Cloud Developing</h4>
+                                <span class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">14/08/2025 - 27/11/2025</span>
+                            </div>
+                            <p class="text-blue-600 font-medium mb-2">AWS Academy</p>
+                            <p class="text-gray-600">Aprender a desenvolver software integrado aos serviços da AWS.</p>
+                        </div>
+
+                        
+                    </div>
+                    </div>
+
+                </section>
+
+
+
+            <!-- Sidebar -->
+            <div class="space-y-8">
+                <!-- Informações de Contato -->
+                <section class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 section-title">
+                        <i class="fas fa-address-card text-blue-600 mr-3"></i>
+                        Contato
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-blue-600 w-5"></i>
+                            <a href="mailto:jlkarnopp@gmail.com" class="text-gray-600 hover:text-blue-600">jlkarnopp@gmail.com</a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-phone text-blue-600 w-5"></i>
+                            <span class="text-gray-600">+55 (47) 99741-7610</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-blue-600 w-5"></i>
+                            <span class="text-gray-600">Joinville, SC</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fab fa-linkedin text-blue-600 w-5"></i>
+                            <a href="www.linkedin.com/in/guilherme-karnopp-ab3b24377" class="text-gray-600 hover:text-blue-600">www.linkedin.com/in/guilherme-karnopp-ab3b24377</a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fab fa-linkedin text-blue-600 w-5"></i>
+                            <a href="#" class="text-gray-600 hover:text-blue-600">https://github.com/GUILHERMEKARNOPP</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Habilidades Técnicas -->
+                <section class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 section-title">
+                        <i class="fas fa-code text-blue-600 mr-3"></i>
+                        Habilidades Técnicas
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-700">Linguagem R</span>
+                                <span class="text-sm text-gray-500">25%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="25%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-700">CSS</span>
+                                <span class="text-sm text-gray-500">35%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="35%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-700">HTML</span>
+                                <span class="text-sm text-gray-500">30%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="30%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-700">Python</span>
+                                <span class="text-sm text-gray-500">45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="45%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-700">Banco de Dados</span>
+                                <span class="text-sm text-gray-500">35%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="35%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-700">AWS</span>
+                                <span class="text-sm text-gray-500">55%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="55%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Idiomas -->
+                <section class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 section-title">
+                        <i class="fas fa-language text-blue-600 mr-3"></i>
+                        Idiomas
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium text-gray-700">Português</span>
+                            <div class="language-level">
+                                <div class="language-dot active"></div>
+                                <div class="language-dot active"></div>
+                                <div class="language-dot active"></div>
+                                <div class="language-dot active"></div>
+                                <div class="language-dot active"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm font-medium text-gray-700">Inglês</span>
+                            <div class="language-level">
+                                <div class="language-dot active"></div>
+                                <div class="language-dot active"></div>
+                                <div class="language-dot"></div>
+                                <div class="language-dot"></div>
+                                <div class="language-dot"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Certificações -->
+                <section class="bg-white rounded-2xl p-8 shadow-lg card-hover fade-in">
+                    <h3 class="text-xl font-bold text-gray-800 mb-6 section-title">
+                        <i class="fas fa-certificate text-blue-600 mr-3"></i>
+                        Certificações
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-award text-yellow-500 mt-1"></i>
+                            <div>
+                                <p class="text-sm font-medium text-gray-700">AWS Cloud Foundations</p>
+                                <p class="text-xs text-gray-500">2025</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-award text-yellow-500 mt-1"></i>
+                            <div>
+                                <p class="text-sm font-medium text-gray-700">Curso Computação Organizacional</p>
+                                <p class="text-xs text-gray-500">2022</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-award text-yellow-500 mt-1"></i>
+                            <div>
+                                <p class="text-sm font-medium text-gray-700">Curso Inglês</p>
+                                <p class="text-xs text-gray-500">2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 text-center no-print"> </footer>
+
+    <script>
+        // Animação de entrada
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Animação das barras de habilidade
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        }
+
+        // Smooth scroll para links internos
+        function smoothScroll() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Efeito de digitação para o nome
+        function typewriterEffect() {
+            const nameElement = document.querySelector('h1');
+            const originalText = nameElement.textContent;
+            nameElement.textContent = '';
+            
+            let i = 0;
+            const timer = setInterval(() => {
+                nameElement.textContent += originalText.charAt(i);
+                i++;
+                if (i > originalText.length - 1) {
+                    clearInterval(timer);
+                }
+            }, 100);
+        }
+
+        // Contador animado para as seções
+        function animateCounters() {
+            const counters = document.querySelectorAll('[data-count]');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                let current = 0;
+                const increment = target / 50;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    counter.textContent = Math.floor(current);
+                    
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    }
+                }, 50);
+            });
+        }
+
+        // Tema escuro/claro (toggle)
+        function toggleTheme() {
+            const body = document.body;
+            const isDark = body.classList.contains('dark-theme');
+            
+            if (isDark) {
+                body.classList.remove('dark-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Função para copiar email
+        function copyEmail() {
+            const email = 'jlkarnopp@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                // Criar notificação
+                const notification = document.createElement('div');
+                notification.textContent = 'Email copiado!';
+                notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-lg z-50';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            });
+        }
+        
+        // Função para download do currículo
+        function downloadCV() {
+            window.print();
+        }
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animar elementos na carga da página
+            setTimeout(() => {
+                animateOnScroll();
+                animateSkillBars();
+            }, 500);
+
+            // Animar no scroll
+            window.addEventListener('scroll', animateOnScroll);
+
+            // Inicializar outras funcionalidades
+            smoothScroll();
+            
+            // Adicionar listeners para interações
+            const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+            emailLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    copyEmail();
+                });
+            });
+
+            // Efeito parallax sutil no header
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                header.style.transform = `translateY(${rate}px)`;
+            });
+
+            // Adicionar efeito de hover nos cards
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+
+        // Função para atualizar informações em tempo real
+        function updateInfo(field, value) {
+            const element = document.querySelector(`[data-field="${field}"]`);
+            if (element) {
+                element.textContent = value;
+            }
+        }
+
+        // Sistema de progresso de leitura
+        function updateReadingProgress() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            let progressBar = document.querySelector('.reading-progress');
+            if (!progressBar) {
+                progressBar = document.createElement('div');
+                progressBar.className = 'reading-progress fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 z-50 transition-all duration-300';
+                document.body.appendChild(progressBar);
+            }
+            
+            progressBar.style.width = scrolled + '%';
+        }
+
+        window.addEventListener('scroll', updateReadingProgress);
+    </script>
+</body>
+</html>
